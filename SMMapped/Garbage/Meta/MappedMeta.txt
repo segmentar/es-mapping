@@ -1,0 +1,25 @@
+﻿
+	O META o no unused namespace(s)
+
+	O TYPE o no unused namespace(s)
+
+	O LINK o no unused namespace(s)
+
+sequence Mapped
+
+	>Compress
+	<<MappedCompress.cs
+
+	>CompressRaw
+	<<MappedCompressRaw.cs
+
+	>Object
+	>>MappedObject
+	<<<MappedObject.cs
+
+	>Prototype
+	<<MappedPrototype.cs
+
+	<Mapped.cs
+
+end sequence
