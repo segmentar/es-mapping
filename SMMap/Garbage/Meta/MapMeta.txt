@@ -22,4 +22,4 @@ sequence Map
 
 	<Map.cs
 
-end sequence Map
+end sequence

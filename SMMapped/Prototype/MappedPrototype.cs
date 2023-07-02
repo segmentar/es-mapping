@@ -11,11 +11,13 @@ namespace Core.Shared
 
     public partial class SMMapped
     {
-        public SMMapped(List<SRResolved> resolvedList, List<SRResolver> resolverList, Boolean debug)
+        public SMMapped(List<SRResolved> resolvedList, List<SRResolver> resolverList, List<SRResolve> resolveList, Boolean debug)
         {
             this.ResolvedList = resolvedList;
 
             this.ResolverList = resolverList;
+
+            this.ResolveList = resolveList;
 
             if (debug is true)
             {

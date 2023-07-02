@@ -6,12 +6,6 @@ namespace Core.Shared
 
     public partial class SMMapper
     {
-        public SMMapperDataStatic Static;
-
-        public SMMapperDataExecute Execute;
-
-        public SMMapperDataDynamic Dynamic;
-
         public SMMapper()
         {
             return;

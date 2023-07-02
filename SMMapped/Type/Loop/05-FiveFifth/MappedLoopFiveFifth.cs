@@ -11,64 +11,37 @@ namespace Core.Shared
 
     public partial class SMMapped
     {
-        public static SMMapped LoopMappedFiveFifth(
+        public static void LoopMappedFiveFifth
+(
 SMMap map,
 List<SRResolved> list_RESOLVED,
 List<SRResolver> list_RESOLVER,
+List<SRResolve> list_RESOLVE,
+SRResolved resolved_CURRENT,
+ref Int32 position,
+ref Int32 division,
+ref Int32 origin,
+ref Int32 layer,
+ref String bind,
 Boolean debug
-            )
+)
         {
-            SMMapped mappedResult = default;
+            SMMappedLoop.Remote(nameof(LoopMappedFiveFifth), resolved_CURRENT, position, division, origin, layer, bind, debug);
 
-            Debug_MappedTraverseOuter(
-                owner: nameof(LoopMappedFiveFifth),
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                debug: debug
-                );
+            var split = resolved_CURRENT.Middle.Value.Split(new String[] { SASyntax.NameColonDouble }, StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (SRResolved resolved_PARENT in list_RESOLVED)
+            var safe_ONE__FIRST = (split.Length > 0) is true;
+
+            if (safe_ONE__FIRST is true)
             {
-                var list_RESOLVED__CHILD = new List<SRResolved>();
+                var first = split[0];
 
-                foreach (SRResolved resolved_CHILD in resolved_PARENT.ResolvedChildList)
-                {
-                    foreach (SRResolved resolved_REBASE in list_RESOLVED)
-                    {
-                        var safe_ONE__FIRST = true;
-
-                        safe_ONE__FIRST = safe_ONE__FIRST && (resolved_CHILD.StartIndex == resolved_REBASE.StartIndex) is true;
-
-                        safe_ONE__FIRST = safe_ONE__FIRST && (resolved_CHILD.EndIndex == resolved_REBASE.EndIndex) is true;
-
-                        if (safe_ONE__FIRST is false)
-                        {
-                            continue;
-                        }
-                        else
-                            "false".ToString();
-
-                        list_RESOLVED__CHILD.Add(resolved_REBASE);
-
-                        break;
-                    }
-
-                    continue;
-                }
-
-                resolved_PARENT.ResolvedChildList = list_RESOLVED__CHILD;
-
-                continue;
+                bind = first;
             }
+            else
+                "false".ToString();
 
-            mappedResult = LoopMappedSixSixth(
-                map: map,
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                debug: debug
-                );
-
-            return mappedResult;
+            return;
         }
     }
 }

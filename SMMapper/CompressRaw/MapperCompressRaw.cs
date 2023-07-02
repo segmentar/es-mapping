@@ -11,10 +11,6 @@ namespace Core.Shared
 
     public partial class SMMapper
     {
-        public SGText StaticText;
-
-        public SGText DynamicText;
-
-        public List<SNNester> OriginList;
+        public List<SNNester> NesterSymmetryList;
     }
 }

@@ -15,13 +15,17 @@ namespace Core.Shared
                 String.Empty + '.' + "compress-raw",
                 String.Empty + '\t' + '~' + "02" + ' ' + nameof(ResolvedList) + ':' + ' ' + ". . ." + ' ' + $"[{ResolvedList.Count}]",
                 String.Empty + '\t' + '~' + "03" + ' ' + nameof(ResolverList) + ':' + ' ' + ". . ." + ' ' + $"[{ResolverList.Count}]",
+                String.Empty + '\t' + '~' + "04" + ' ' + nameof(ResolveList) + ':' + ' ' + ". . ." + ' ' + $"[{ResolveList.Count}]",
                 String.Empty + '}',
                 String.Empty,
-                String.Empty + '~' + "10" + ' ' + nameof(ResolvedList) + ':',
+                String.Empty + '~' + "10" + ' ' + SAConstant.DebugVisibilityLine + ' ' + nameof(ResolvedList) + ':',
                 String.Empty + String.Join('\n'.ToString(), ResolvedList),
                 String.Empty,
-                String.Empty + '~' + "20" + ' ' + nameof(ResolverList) + ':',
-                String.Empty + String.Join('\n'.ToString(), ResolverList)
+                String.Empty + '~' + "20" + ' ' + SAConstant.DebugVisibilityLine + ' ' + nameof(ResolverList) + ':',
+                String.Empty + String.Join('\n'.ToString(), ResolverList),
+                String.Empty,
+                String.Empty + '~' + "30" + ' ' + SAConstant.DebugVisibilityLine + ' ' + nameof(ResolveList) + ':',
+                String.Empty + String.Join('\n'.ToString(), ResolveList)
             });
         }
     }

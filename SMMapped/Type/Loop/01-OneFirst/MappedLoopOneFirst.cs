@@ -11,39 +11,45 @@ namespace Core.Shared
 
     public partial class SMMapped
     {
-        public static SMMapped LoopMappedOneFirst(
+        public static void LoopMappedOneFirst
+(
 SMMap map,
 List<SRResolved> list_RESOLVED,
 List<SRResolver> list_RESOLVER,
+List<SRResolve> list_RESOLVE,
+SRResolved resolved_CURRENT,
+ref Int32 position,
+ref Int32 division,
+ref Int32 origin,
+ref Int32 layer,
+ref String bind,
 Boolean debug
-            )
+)
         {
-            SMMapped mappedResult = default;
+            SMMappedLoop.Remote(nameof(LoopMappedOneFirst), resolved_CURRENT, position, division, origin, layer, bind, debug);
 
-            Debug_MappedTraverseOuter(
-                owner: nameof(LoopMappedOneFirst),
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                debug: debug
-                );
-
-            foreach (SNNester nester in map.NesterList)
+            /*if (enumerator.MoveNext() is false)
             {
-                var resolved = SRResolved.Runtime_MakeResolvedNew(nester);
+                var list_ISOLATE = SRResolver.ResolverIsolateSet(1, list_RESOLVER);
 
-                list_RESOLVED.Add(resolved);
+                var list_SORT = SRResolver.ResolverSortSet(list_ISOLATE);
 
-                continue;
+                list_RESOLVER = new List<SRResolver>(list_SORT);
+
+                mappedResult = new SMMapped(
+                    list_RESOLVED,
+                    list_RESOLVER,
+                    debug
+                    );
+
+                return mappedResult;
             }
+            else
+            {
+                SRResolved.TraverseSort(enumerator.Current);
+            }(*/
 
-            mappedResult = LoopMappedTwoSecond(
-                map: map,
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                debug: debug
-                );
-
-            return mappedResult;
+            return;
         }
     }
 }

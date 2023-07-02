@@ -11,73 +11,47 @@ namespace Core.Shared
 
     public partial class SMMapped
     {
-        public static SMMapped LoopMappedThreeThird(
+        public static void LoopMappedThreeThird
+(
 SMMap map,
 List<SRResolved> list_RESOLVED,
 List<SRResolver> list_RESOLVER,
+List<SRResolve> list_RESOLVE,
+SRResolved resolved_CURRENT,
+ref Int32 position,
+ref Int32 division,
+ref Int32 origin,
+ref Int32 layer,
+ref String bind,
 Boolean debug
-            )
+)
         {
-            SMMapped mappedResult = default;
+            SMMappedLoop.Remote(nameof(LoopMappedThreeThird), resolved_CURRENT, position, division, origin, layer, bind, debug);
 
-            Debug_MappedTraverseOuter(
-                owner: nameof(LoopMappedThreeThird),
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                debug: debug
-                );
+            var safe_ONE__FIRST = (resolved_CURRENT.ResolvedParent == default) is false;
 
-            foreach (SRResolved resolved in list_RESOLVED)
+            if (safe_ONE__FIRST)
             {
-                var list_RESOLVED__CHILD = new List<SRResolved>();
+                /*division = resolved_CURRENT.ResolvedParent.ResolvedParent.ResolvedChildList.IndexOf(resolved_CURRENT.ResolvedParent);
 
-                var enumerator = map.NestList.GetEnumerator();
+                var division_ALIGN__ENO = division;
 
-                do
-                {
-                    if (enumerator.MoveNext() is false)
-                    {
-                        break;
-                    }
-                    else
-                        "false".ToString();
+                division_ALIGN__ENO = division_ALIGN__ENO + 1;
 
-                    var current = enumerator.Current;
+                division = division_ALIGN__ENO;*/
+            }
+            else
+            {
+                /*division = 0;// resolved.ResolvedParent.ResolvedChildList.IndexOf(resolved);
 
-                    var safe_match__ONE_FIRST = true;
+                var division_ALIGN__ENO = division;
 
-                    safe_match__ONE_FIRST = safe_match__ONE_FIRST && (resolved.StartIndex == current.Parent.Left.Position) is true;
+                division_ALIGN__ENO = division_ALIGN__ENO + 1;
 
-                    safe_match__ONE_FIRST = safe_match__ONE_FIRST && (resolved.EndIndex == current.Parent.Right.Position) is true;
-
-                    if (safe_match__ONE_FIRST is false)
-                    {
-                        continue;
-                    }
-                    else
-                        "false".ToString();
-
-                    var resolved_CHILD = SRResolved.Runtime_MakeResolvedNew(current.Child);
-
-                    list_RESOLVED__CHILD.Add(resolved_CHILD);
-
-                    continue;
-
-                } while (true);
-
-                resolved.ResolvedChildList = list_RESOLVED__CHILD;
-
-                continue;
+                division = division_ALIGN__ENO;*/
             }
 
-            mappedResult = LoopMappedFourFourth(
-                map: map,
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                debug: debug
-                );
-
-            return mappedResult;
+            return;
         }
     }
 }

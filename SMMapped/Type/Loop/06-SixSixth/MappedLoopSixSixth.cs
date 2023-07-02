@@ -11,48 +11,32 @@ namespace Core.Shared
 
     public partial class SMMapped
     {
-        public static SMMapped LoopMappedSixSixth(
+        public static void LoopMappedSixSixth
+(
 SMMap map,
 List<SRResolved> list_RESOLVED,
 List<SRResolver> list_RESOLVER,
+List<SRResolve> list_RESOLVE,
+SRResolved resolved_CURRENT,
+ref Int32 position,
+ref Int32 division,
+ref Int32 origin,
+ref Int32 layer,
+ref String bind,
 Boolean debug
-            )
+)
         {
-            SMMapped mappedResult = default;
+            SMMappedLoop.Remote(nameof(LoopMappedSixSixth), resolved_CURRENT, position, division, origin, layer, bind, debug);
 
-            Debug_MappedTraverseOuter(
-                owner: nameof(LoopMappedSixSixth),
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                debug: debug
-                );
+            var resolve = SRResolve.Runtime_MakeResolveNew(resolved_CURRENT, position, division, origin, layer, bind);
 
-            var enumerator = list_RESOLVED.GetEnumerator();
+            list_RESOLVE.Add(resolve);
 
-            var position = default(Int32);
+            var resolver = SRResolver.Runtime_MakeResolverNew(resolved_CURRENT);
 
-            var division = default(Int32);
+            list_RESOLVER.Add(resolver);
 
-            var origin = default(Int32);
-
-            var layer = default(Int32);
-
-            var bind = default(String);
-
-            mappedResult = LoopMappedSevenSeventh(
-                map: map,
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                enumerator: enumerator,
-                position: position,
-                division: division,
-                origin: origin,
-                layer: layer,
-                bind: bind,
-                debug: debug
-                );
-
-            return mappedResult;
+            return;
         }
     }
 }

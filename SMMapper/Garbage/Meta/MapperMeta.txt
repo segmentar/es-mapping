@@ -8,7 +8,7 @@
 sequence Mapper
 
 	>Compress
-	<<MapperCompress.cs
+	<<MapperCompress
 
 	>CompressRaw
 	<<MapperCompressRaw.cs
@@ -22,4 +22,4 @@ sequence Mapper
 
 	<Mapper.cs
 
-end sequence
+end

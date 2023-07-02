@@ -11,57 +11,59 @@ namespace Core.Shared
 
     public partial class SMMapped
     {
-        public static SMMapped LoopMappedFourFourth(
+        public static void LoopMappedFourFourth
+(
 SMMap map,
 List<SRResolved> list_RESOLVED,
 List<SRResolver> list_RESOLVER,
+List<SRResolve> list_RESOLVE,
+SRResolved resolved_CURRENT,
+ref Int32 position,
+ref Int32 division,
+ref Int32 origin,
+ref Int32 layer,
+ref String bind,
 Boolean debug
-            )
+)
         {
-            SMMapped mappedResult = default;
+            SMMappedLoop.Remote(nameof(LoopMappedFourFourth), resolved_CURRENT, position, division, origin, layer, bind, debug);
 
-            Debug_MappedTraverseOuter(
-                owner: nameof(LoopMappedFourFourth),
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                debug: debug
-                );
+            var safe_ONE__FIRST = (resolved_CURRENT.ResolvedParent == default) is false;
 
-            foreach (SRResolved resolved_CHILD in list_RESOLVED)
+            var indexer_TWO__SECOND = 0;
+
+            foreach (SRResolved resolved_ORIGIN in list_RESOLVED)
             {
-                foreach (SRResolved resolved_PARENT in list_RESOLVED)
+                var safe_TWO__SECOND = true;
+
+                safe_ONE__FIRST = safe_ONE__FIRST && (resolved_ORIGIN.LayerNumber == 1) is true;
+
+                if (safe_TWO__SECOND is false)
                 {
-                    var safe_ONE__FIRST = true;
-
-                    safe_ONE__FIRST = safe_ONE__FIRST && (resolved_CHILD.ResolvedParent == default) is false;
-
-                    safe_ONE__FIRST = safe_ONE__FIRST && (resolved_CHILD.ResolvedParent.StartIndex == resolved_PARENT.StartIndex) is true;
-
-                    safe_ONE__FIRST = safe_ONE__FIRST && (resolved_CHILD.ResolvedParent.EndIndex == resolved_PARENT.EndIndex) is true;
-
-                    if (safe_ONE__FIRST is false)
-                    {
-                        continue;
-                    }
-                    else
-                        "false".ToString();
-
-                    resolved_CHILD.ResolvedParent = resolved_PARENT;
-
                     continue;
                 }
+                else
+                    "false".ToString();
 
-                continue;
+                indexer_TWO__SECOND = indexer_TWO__SECOND + 1;
+
+                safe_ONE__FIRST = safe_ONE__FIRST && (resolved_ORIGIN.StartIndex < resolved_CURRENT.StartIndex) is true;
+
+                safe_ONE__FIRST = safe_ONE__FIRST && (resolved_ORIGIN.EndIndex > resolved_CURRENT.EndIndex) is true;
+
+                if (safe_TWO__SECOND is false)
+                {
+                    continue;
+                }
+                else
+                    "false".ToString();
+
+                origin = indexer_TWO__SECOND;
+
+                break;
             }
 
-            mappedResult = LoopMappedFiveFifth(
-                map: map,
-                list_RESOLVED: list_RESOLVED,
-                list_RESOLVER: list_RESOLVER,
-                debug: debug
-                );
-
-            return mappedResult;
+            return;
         }
     }
 }

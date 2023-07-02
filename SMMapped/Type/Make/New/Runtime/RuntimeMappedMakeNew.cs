@@ -6,9 +6,13 @@ namespace Core.Shared
 
     public partial class SMMapped
     {
-        public static SMMapped Runtime_MakeMappedNew(SMMappingInformation information, SGSymbol symbol_LEFT, SGSymbol symbol_RIGHT, SGDelimiter delimiter_LEFT, SGDelimiter delimiter_RIGHT, SGText text_STATIC)
+        public static SMMapped Runtime_MakeMappedNew(SGSymbol symbol_LEFT, SGSymbol symbol_RIGHT, SGDelimiter delimiter_LEFT, SGDelimiter delimiter_RIGHT, SGText text_STATIC)
         {
-            return MappedTrigger(information, symbol_LEFT, symbol_RIGHT, delimiter_LEFT, delimiter_RIGHT, text_STATIC, SAPolicy.MappedDebugPolicy);
+            SMMapped mappedResult = default;
+
+            mappedResult = MakeMappedNew(symbol_LEFT, symbol_RIGHT, delimiter_LEFT, delimiter_RIGHT, text_STATIC, SAPolicy.MappedDebugPolicy);
+
+            return mappedResult;
         }
     }
 }

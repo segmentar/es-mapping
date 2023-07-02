@@ -11,9 +11,18 @@ namespace Core.Shared
 
     public partial class SMMap
     {
-        public SMMap(List<SNNester> originList, List<SNNester> loneList, List<SNNester> childList, List<SNNester> parentList, List<SNNester> nesterList, List<SNNest> nestList, Boolean debug)
+        public SMMap
+(
+List<SNNest> nestList,
+List<SNNester> loneList,
+List<SNNester> childList,
+List<SNNester> parentList,
+List<SNNester> dynamicList,
+List<SNNester> asymmetryList,
+Boolean debug
+)
         {
-            this.OriginList = originList;
+            this.NestList = nestList;
 
             this.LoneList = loneList;
 
@@ -21,9 +30,9 @@ namespace Core.Shared
 
             this.ParentList = parentList;
 
-            this.NesterList = nesterList;
+            this.DynamicList = dynamicList;
 
-            this.NestList = nestList;
+            this.AsymmetryList = asymmetryList;
 
             if (debug is true)
             {

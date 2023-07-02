@@ -14,5 +14,7 @@ namespace Core.Shared
         public List<SRResolved> ResolvedList;
 
         public List<SRResolver> ResolverList;
+
+        public List<SRResolve> ResolveList;
     }
 }

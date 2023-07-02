@@ -8,36 +8,36 @@ namespace Core.Shared
     {
         public override String ToString()
         {
-            return String.Join('\n'.ToString(), new String[] { 
+            return String.Join('\n'.ToString(), new String[] {
                 String.Empty + nameof(SMMap) + ' ' + "::" + ' ' + '{',
                 String.Empty + '.' + "compress",
                 String.Empty + '\t' + '~' + "01" + ' ' + nameof(IsDebug) + ':' + ' ' + IsDebug,
                 String.Empty + '.' + "compress-raw",
-                String.Empty + '\t' + '~' + "02" + ' ' + nameof(OriginList) + ':' + ' ' + ". . ." + ' ' + $"[{OriginList.Count}]",
-                String.Empty + '\t' + '~' + "03" + ' ' + nameof(LoneList) + ':' + ' ' + ". . ." + ' ' + $"[{LoneList.Count}]",
-                String.Empty + '\t' + '~' + "04" + ' ' + nameof(ChildList) + ':' + ' ' + ". . ." + ' ' + $"[{ChildList.Count}]",
-                String.Empty + '\t' + '~' + "05" + ' ' + nameof(ParentList) + ':' + ' ' + ". . ." + ' ' + $"[{ParentList.Count}]",
-                String.Empty + '\t' + '~' + "06" + ' ' + nameof(NesterList) + ':' + ' ' + ". . ." + ' ' + $"[{NesterList.Count}]",
-                String.Empty + '\t' + '~' + "07" + ' ' + nameof(NestList) + ':' + ' ' + ". . ." + ' ' + $"[{NestList.Count}]",
+                String.Empty + '\t' + '~' + "02" + ' ' + nameof(NestList) + ':' + ' ' + ". . .",
+                String.Empty + '\t' + '~' + "03" + ' ' + nameof(LoneList) + ':' + ' ' + ". . .",
+                String.Empty + '\t' + '~' + "04" + ' ' + nameof(ChildList) + ':' + ' ' + ". . .",
+                String.Empty + '\t' + '~' + "05" + ' ' + nameof(ParentList) + ':' + ' ' + ". . .",
+                String.Empty + '\t' + '~' + "06" + ' ' + nameof(DynamicList) + ':' + ' ' + ". . . ",
+                String.Empty + '\t' + '~' + "07" + ' ' + nameof(AsymmetryList) + ':' + ' ' + ". . .",
                 String.Empty + '}',
                 String.Empty,
-                String.Empty + '~' + "10" + ' ' + nameof(OriginList) + ':',
-                String.Empty + $"[{String.Join('\n'.ToString(), OriginList)}]",
+                String.Empty + '~' + "10" + ' ' + SAConstant.DebugVisibilityLine + ' ' + nameof(NestList) + ':',
+                String.Empty + String.Join('\n'.ToString(), NestList),
                 String.Empty,
-                String.Empty + '~' + "20" + ' ' + nameof(LoneList) + ':',
-                String.Empty + $"{{{String.Join('\n'.ToString(), LoneList)}}}",
+                String.Empty + '~' + "20" + ' ' + SAConstant.DebugVisibilityLine + ' ' + nameof(LoneList) + ':',
+                String.Empty + String.Join('\n'.ToString(), LoneList),
                 String.Empty,
-                String.Empty + '~' + "30" + ' ' + nameof(ChildList) + ':',
-                String.Empty + $"{{{String.Join('\n'.ToString(), ChildList)}}}",
+                String.Empty + '~' + "30" + ' ' + SAConstant.DebugVisibilityLine + ' ' + nameof(ChildList) + ':',
+                String.Empty + String.Join('\n'.ToString(), ChildList),
                 String.Empty,
-                String.Empty + '~' + "40" + ' ' + nameof(ParentList) + ':',
-                String.Empty + $"{{{String.Join('\n'.ToString(), ParentList)}}}",
+                String.Empty + '~' + "40" + ' ' + SAConstant.DebugVisibilityLine + ' ' + nameof(ParentList) + ':',
+                String.Empty + String.Join('\n'.ToString(), ParentList),
                 String.Empty,
-                String.Empty + '~' + "50" + ' ' + nameof(NesterList) + ':',
-                String.Empty + $"{{{String.Join('\n'.ToString(), NesterList)}}}",
+                String.Empty + '~' + "50" + ' ' + SAConstant.DebugVisibilityLine + ' ' + nameof(DynamicList) + ':',
+                String.Empty + String.Join('\n'.ToString(), DynamicList),
                 String.Empty,
-                String.Empty + '~' + "60" + ' ' + nameof(NestList) + ':',
-                String.Empty + $"{{{String.Join('\n'.ToString(), NestList)}}}"
+                String.Empty + '~' + "60" + ' ' + SAConstant.DebugVisibilityLine + ' ' + nameof(AsymmetryList) + ':',
+                String.Empty + String.Join('\n'.ToString(), AsymmetryList)
             });
         }
     }

@@ -11,7 +11,7 @@ namespace Core.Shared
 
     public partial class SMMap
     {
-        public List<SNNester> OriginList;
+        public List<SNNest> NestList;
 
         public List<SNNester> LoneList;
 
@@ -19,8 +19,8 @@ namespace Core.Shared
 
         public List<SNNester> ParentList;
 
-        public List<SNNester> NesterList;
+        public List<SNNester> DynamicList;
 
-        public List<SNNest> NestList;
+        public List<SNNester> AsymmetryList;
     }
 }
